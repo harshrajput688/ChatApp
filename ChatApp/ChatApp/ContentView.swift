@@ -24,9 +24,9 @@ struct ContentView: View {
                     .padding(.top, 10)
                     .background(.white)
                     .cornerRadius(20, corners: [.topLeft, .topRight])
-                    .onChange(of: messageManager.lastMessageId) { id in
+                    .onChange(of: messageManager.lastMessageId) { oldId, newId in
                         withAnimation {
-                            proxy.scrollTo(id, anchor: .bottom)
+                            proxy.scrollTo(newId, anchor: .bottom)
                         }
                     }
                 }
